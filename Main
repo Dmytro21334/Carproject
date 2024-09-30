@@ -1,0 +1,21 @@
+package vehicles;
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car("Toyota Camry", 25000, 2019);
+        car.displayCarInfo();
+        System.out.println("Амортизація: " + car.calculateDepreciation());
+        car.setDiscount(3000);
+
+        ElectricCar electricCar = new ElectricCar("Tesla Model S", 80000, 2021, 100, 500);
+        electricCar.displayCarInfo();
+        electricCar.chargeBattery(20);
+
+        System.out.println(car.toString());
+        System.out.println(electricCar.toString());
+
+        System.out.println("car.equals(electricCar): " + car.equals(electricCar));
+        System.out.println("car.hashCode(): " + car.hashCode());
+        System.out.println("electricCar.hashCode(): " + electricCar.hashCode());
+    }
+}
