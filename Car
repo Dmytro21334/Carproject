@@ -1,0 +1,48 @@
+package vehicles;
+
+public class Car {
+    private String brand;
+    private double price;
+    private int year;
+
+    public Car(String brand, double price, int year) {
+        this.brand = brand;
+        this.price = price;
+        this.year = year;
+    }
+
+    public void displayCarInfo() {
+        System.out.println("Марка: " + brand);
+        System.out.println("Ціна: " + price);
+        System.out.println("Рік випуску: " + year);
+    }
+
+    public double calculateDepreciation() {
+        int currentYear = 2024;
+        int age = currentYear - year;
+        return price - (age * 1000);
+    }
+
+    public void setDiscount(double discount) {
+        this.price = price - discount;
+        System.out.println("Нова ціна після знижки: " + price);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" + "brand='" + brand + '\'' + ", price=" + price + ", year=" + year + '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Car car = (Car) obj;
+        return Double.compare(car.price, price) == 0 && year == car.year && brand.equals(car.brand);
+    }
+
+    @Override
+    public int hashCode() {
+        return brand.hashCode() + (int) price + year;
+    }
+}
